@@ -1,0 +1,41 @@
+group 'com.bill.demo'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'gs-accessing-data-rest'
+    version = '0.1.0'
+}
+
+repositories {
+    maven {
+        url "http://repo.spring.io/libs-release-local"
+    }
+
+
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+//    compile("hsqldb:hsqldb:1.8.0.10")
+    compile("com.h2database:h2")
+    compile("org.springframework.data:spring-data-rest-hal-browser")
+    testCompile("org.springframework.boot:spring-boot-starter-test:1.5.9.RELEASE")
+}
