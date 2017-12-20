@@ -1,0 +1,4 @@
+rootProject.name = 'demo'
+
+include 'gs-accessing-data-rest'
+include 'gs-messaging-jms'
