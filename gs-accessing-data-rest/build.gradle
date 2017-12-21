@@ -17,5 +17,7 @@ dependencies {
 //    compile("hsqldb:hsqldb:1.8.0.10")
     compile("com.h2database:h2")
     compile("org.springframework.data:spring-data-rest-hal-browser")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
     testCompile("org.springframework.boot:spring-boot-starter-test:1.5.9.RELEASE")
+    testCompile("junit:junit")
 }
