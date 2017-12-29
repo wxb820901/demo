@@ -7,17 +7,42 @@ apply plugin: 'org.springframework.boot'
 jar {
     baseName = 'gs-messaging-jms'
     version =  '0.1.0'
+
 }
 
+
 sourceCompatibility = 1.8
+
+buildscript {
+    repositories {
+        maven {
+            url "http://cft-nexus.ldn.swissbank.com:8081/nexus/content/groups/public"  //MDC Nexus
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+    }
+}
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-activemq")
     compile("org.apache.activemq:activemq-broker")
     compile("com.fasterxml.jackson.core:jackson-databind")
 
-//    testCompile("junit:junit:4.12")
+    compile("org.springframework.boot:spring-boot-starter-integration")
+    compile("org.springframework.integration:spring-integration-feed")
+    compile("org.springframework.integration:spring-integration-file")
+
+    testCompile("junit:junit")
     testCompile("org.apache.activemq.tooling:activemq-junit:5.15.0")
-    testCompile("org.apache.activemq:activemq-broker:5.15.2")
-    testCompile("org.springframework.boot:spring-boot-starter-test:1.5.9.RELEASE")
+    testCompile("org.apache.activemq:activemq-broker")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+
+repositories {
+    maven {
+        url "http://repo.spring.io/libs-release-local"
+    }
+
 }
