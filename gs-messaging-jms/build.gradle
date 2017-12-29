@@ -16,7 +16,7 @@ sourceCompatibility = 1.8
 buildscript {
     repositories {
         maven {
-            url "http://cft-nexus.ldn.swissbank.com:8081/nexus/content/groups/public"  //MDC Nexus
+            url "http://repo.spring.io/libs-release-local"
         }
     }
     dependencies {
