@@ -22,7 +22,8 @@ public class Person {
 
 	private String firstName;
 	private String lastName;
-
+        private boolean isChecked = false;
+	
 	public Person(String firstName, String lastName, GroupXXX groupXXX) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -32,6 +33,15 @@ public class Person {
 	public Person(String firstName, String lastName, GroupXXX groupXXX, Person leader, Collection<Person> members) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.groupXXX = groupXXX;
+		this.leader = leader;
+		this.members = members;
+	}
+	
+	public Person(String firstName, String lastName, boolean isChecked, GroupXXX groupXXX, Person leader, Collection<Person> members) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.isChecked = isChecked;
 		this.groupXXX = groupXXX;
 		this.leader = leader;
 		this.members = members;
@@ -92,6 +102,14 @@ public class Person {
 		this.members = members;
 	}
 
+	public boolean isChecked() {
+		return isChecked;
+	}
+
+	public void setChecked(boolean checked) {
+		isChecked = checked;
+	}
+	
 	@Override
 	public String toString() {
 		return "Person{" +
