@@ -1,8 +1,11 @@
+group 'com.bill'
+version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
+
 
 jar {
     baseName = 'gs-accessing-data-rest'
@@ -10,6 +13,17 @@ jar {
 }
 
 sourceCompatibility = 1.8
+
+buildscript {
+    repositories {
+        maven {
+            url "http://repo.spring.io/libs-release-local"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+    }
+}
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-rest")
@@ -20,4 +34,15 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     testCompile("org.springframework.boot:spring-boot-starter-test:1.5.9.RELEASE")
     testCompile("junit:junit")
+}
+
+repositories {
+    maven {
+        url "http://repo.spring.io/libs-release-local"
+    }
+
+}
+
+tasks.withType(JavaExec) {
+    standardInput = System.in
 }
