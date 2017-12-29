@@ -1,0 +1,52 @@
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'gs-integration'
+    version =  '0.1.0'
+}
+
+sourceCompatibility = 1.8
+
+buildscript {
+    repositories {
+        maven {
+            url "http://repo.spring.io/libs-release-local"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+    }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-integration")
+    compile("org.springframework.integration:spring-integration-feed")
+    compile("org.springframework.integration:spring-integration-file")
+    compile("org.springframework.integration:spring-integration-jdbc")
+    compile("org.springframework.integration:spring-integration-http")
+    compile("org.springframework.integration:spring-integration-ip")
+    compile("org.springframework.integration:spring-integration-stream")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+    compile("commons-dbcp:commons-dbcp")
+    compile("commons-pool:commons-pool")
+//    compile 'org.springframework.integration:spring-integration-core:5.0.0.RELEASE'
+
+    compile("com.h2database:h2")
+//    compile("com.bill:gs-accessing-data-rest:0.1.0")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("junit:junit")
+
+}
+
+repositories {
+    maven {
+        url "http://repo.spring.io/libs-release-local"
+    }
+
+}
