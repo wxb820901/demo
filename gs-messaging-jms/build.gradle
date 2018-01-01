@@ -15,6 +15,8 @@ sourceCompatibility = 1.8
 
 buildscript {
     repositories {
+        jcenter()
+        mavenCentral()
         maven {
             url "http://repo.spring.io/libs-release-local"
         }
@@ -40,9 +42,9 @@ dependencies {
 }
 
 
-repositories {
-    maven {
-        url "http://repo.spring.io/libs-release-local"
-    }
-
-}
+//repositories {
+//    maven {
+//        url "http://repo.spring.io/libs-release-local"
+//    }
+//
+//}

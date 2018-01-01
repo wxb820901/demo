@@ -1,3 +1,11 @@
 group 'com.bill'
 version '1.0-SNAPSHOT'
 
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {url "http://repo.spring.io/libs-release-local"}
+    }
+}
+
