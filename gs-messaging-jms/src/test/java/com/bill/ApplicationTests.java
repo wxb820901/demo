@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ApplicationTest{
+public class ApplicationTests {
     @Rule
     public OutputCapture outputCapture = new OutputCapture();
 
@@ -36,7 +36,7 @@ public class ApplicationTest{
     @Test
     public void sendSimpleMessage() throws InterruptedException {
 
-        if(context != null){
+        if (context != null) {
             System.out.println(" =======> Sending an email message.");
             jmsTemplate.convertAndSend("mailbox", new Email("info@example.com", "Hello"));
         }
@@ -44,3 +44,4 @@ public class ApplicationTest{
         Thread.sleep(1000L);
         assertThat(this.outputCapture.toString().contains("info@example.com")).isTrue();
     }
+}
